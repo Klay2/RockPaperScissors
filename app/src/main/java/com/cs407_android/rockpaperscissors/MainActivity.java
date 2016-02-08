@@ -17,9 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (savedInstanceState != null) {
-            return;
-        }
+        //if (savedInstanceState != null) {return;}
 
     }
 
@@ -32,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void playPressed(View view) {
         //TODO: Put to start game play activity
+        Intent play = new Intent(this, PlayActivity.class);
+        startActivity(play);
     }
 
     @Override
