@@ -106,9 +106,17 @@ public class PlayFragment extends Fragment {
 
                 if(player1Choice == null) {
                    //TODO player 1 chose Rock
+                    if(player2Choice.equals(getString(R.string.scissors))){
+                        //pull up win dialogue
+                        DialogFragment
+                    }
+                    else if(player2Choice.equals(getString(R.string.paper))){
+                        //pull up lose dialogue
+                    }
                 }
                 else{
                     //TODO player 2 chose Rock
+                    //pull up draw dialogue
                 }
 
             }
@@ -120,6 +128,12 @@ public class PlayFragment extends Fragment {
 
                 if(player1Choice == null) {
                     //TODO
+                    if(player2Choice.equals(getString(R.string.scissors))){
+                        //pull up lose dialogue
+                    }
+                    else if(player2Choice.equals(getString(R.string.rock))){
+                        //pull up win dialogue
+                    }
 
                 }
                 else{
@@ -135,7 +149,12 @@ public class PlayFragment extends Fragment {
 
                 if(player1Choice == null) {
                     //TODO
-
+                    if(player2Choice.equals(getString(R.string.rock))){
+                        //pull up loose dialogue
+                    }
+                    else if(player2Choice.equals(getString(R.string.paper))){
+                        //pull up win dialogue
+                    }
                 }
                 else{
                     //TODO
