@@ -3,6 +3,7 @@ package com.cs407_android.rockpaperscissors;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -106,17 +107,24 @@ public class PlayFragment extends Fragment {
 
                 if(player1Choice == null) {
                    //TODO player 1 chose Rock
-                    if(player2Choice.equals(getString(R.string.scissors))){
-                        //pull up win dialogue
-                        DialogFragment
-                    }
-                    else if(player2Choice.equals(getString(R.string.paper))){
-                        //pull up lose dialogue
-                    }
+                    getFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_fragment_container, PlayFragment.newInstance(getString(R.string.rock), null))
+                            .addToBackStack(null)
+                            .commit();
                 }
                 else{
                     //TODO player 2 chose Rock
                     //pull up draw dialogue
+                    if(player1Choice.equals(getString(R.string.scissors))){
+                        displayWinner("Player 2");
+                    }
+                    else if(player1Choice.equals(getString(R.string.paper))){
+                        displayWinner("Player 1");
+                    }
+                    else{
+                        displayWinner("DRAW");
+                    }
                 }
 
             }
@@ -128,17 +136,23 @@ public class PlayFragment extends Fragment {
 
                 if(player1Choice == null) {
                     //TODO
-                    if(player2Choice.equals(getString(R.string.scissors))){
-                        //pull up lose dialogue
-                    }
-                    else if(player2Choice.equals(getString(R.string.rock))){
-                        //pull up win dialogue
-                    }
-
+                    //player1Choice = getString(R.string.paper);
+                    getFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_fragment_container, PlayFragment.newInstance(getString(R.string.paper), null))
+                            .addToBackStack(null)
+                            .commit();
                 }
                 else{
-                    //TODO
-
+                    if(player1Choice.equals(getString(R.string.scissors))){
+                        displayWinner("Player 1");
+                    }
+                    else if(player1Choice.equals(getString(R.string.rock))){
+                        displayWinner("Player 2");
+                    }
+                    else{
+                        displayWinner("DRAW");
+                    }
                 }
             }
         });
@@ -149,16 +163,23 @@ public class PlayFragment extends Fragment {
 
                 if(player1Choice == null) {
                     //TODO
-                    if(player2Choice.equals(getString(R.string.rock))){
-                        //pull up loose dialogue
-                    }
-                    else if(player2Choice.equals(getString(R.string.paper))){
-                        //pull up win dialogue
-                    }
+                    getFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_fragment_container, PlayFragment.newInstance(getString(R.string.scissors), null))
+                            .addToBackStack(null)
+                            .commit();
                 }
                 else{
                     //TODO
-
+                    if(player1Choice.equals(getString(R.string.paper))){
+                        displayWinner("Player 2");
+                    }
+                    else if(player1Choice.equals(getString(R.string.rock))){
+                        displayWinner("Player 1");
+                    }
+                    else{
+                        displayWinner("DRAW");
+                    }
                 }
             }
         });
@@ -178,6 +199,7 @@ public class PlayFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //TODO start a rematch!
+                       finish(this);
                     }
                 })
                 .setNegativeButton("Quit", new DialogInterface.OnClickListener() {

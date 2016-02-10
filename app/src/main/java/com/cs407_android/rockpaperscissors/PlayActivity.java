@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.app.FragmentManager;
 
 public class PlayActivity extends AppCompatActivity {
 
@@ -19,6 +20,15 @@ public class PlayActivity extends AppCompatActivity {
                 .addToBackStack(null)
                 .commit();
         //TA end
+    }
+
+    public void p2Choose(){
+
+    }
+
+    public void gameOverRestart(Fragment in){
+        getFragmentManager().beginTransaction();
+
     }
 
     @Override
